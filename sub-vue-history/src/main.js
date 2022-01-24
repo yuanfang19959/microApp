@@ -9,8 +9,7 @@ let router = null;
 
 const render = ({ container } = {}) => {
   router = new createRouter({
-    base: window.__POWERED_BY_QIANKUN__ ? '/app-vue/' : '/',
-    history: createWebHistory(), 
+    history: createWebHistory(window.__POWERED_BY_QIANKUN__ ? '/app-vue' : '/'), 
     routes: routes,
 })
   instance = createApp(App).use(router).mount(container ? container.querySelector("#app") : "#app");

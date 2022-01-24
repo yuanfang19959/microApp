@@ -8,6 +8,6 @@ import { useRouter } from 'vue-router'
 const router = useRouter()
 
 const goPage = () => {
-  router.push('/app-vue/ass')
+  router.push('/ass')
 }
 </script>

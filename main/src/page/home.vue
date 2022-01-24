@@ -15,7 +15,7 @@ const goApp = (type) => {
   } else if(type === 1) {
     router.push('/app-react')
   } else {
-    router.push('/app-vue')
+    router.push('/app-vue/')
   }
 }
 </script>
