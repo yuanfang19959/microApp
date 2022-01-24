@@ -1,10 +1,8 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './routes';
-import 'normalize.css'
-import { Button, Skeleton } from "vant";
-import { service } from "@/utils/request"
-import store from './store'
+import '../qiankun'
+
 const app = createApp(App);
 
 router.beforeEach((to, from, next) => {
@@ -13,10 +11,5 @@ router.beforeEach((to, from, next) => {
 })
 
 app.use(router)
-app.use(store)
-app.use(
-    Button,
-    Skeleton
-)
-app.config.globalProperties.$service = service;
+
 app.mount('#app')
