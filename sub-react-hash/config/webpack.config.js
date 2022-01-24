@@ -1,5 +1,6 @@
 'use strict';
 
+const packageName = require('../package.json').name;
 const fs = require('fs');
 const path = require('path');
 const webpack = require('webpack');
@@ -200,6 +201,9 @@ module.exports = function (webpackEnv) {
     // This means they will be the "root" imports that are included in JS bundle.
     entry: paths.appIndexJs,
     output: {
+      library: `${packageName}-[name]`,
+      libraryTarget: 'umd',
+      chunkLoadingGlobal: `webpackJsonp_${packageName}`,
       // The build folder.
       path: paths.appBuild,
       // Add /* filename */ comments to generated require()s in the output.
