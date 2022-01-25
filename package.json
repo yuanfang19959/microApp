@@ -1,0 +1,15 @@
+{
+  "name": "microApp",
+  "version": "1.0.0",
+  "description": "micro front mini system",
+  "main": "index.js",
+  "repository": "https://github.com/yuanfang19959/microApp.git",
+  "author": "zhengzhibin <544080261@qq.com>",
+  "license": "MIT",
+  "scripts": {
+    "install-all": "cd ./sub-vue-history && yarn install && cd ../sub-react-hash && yarn install && cd ../main && yarn install",
+    "start-all": "cd ./sub-vue-history && yarn serve && cd ../sub-react-hash && yarn start && cd ../main && yarn serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
+  }
+}

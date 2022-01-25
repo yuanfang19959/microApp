@@ -1,6 +1,6 @@
 <template>
   <el-container class="layout-container-demo">
-    <el-aside width="200px" style="background-color: rgb(238, 241, 246)">
+    <el-aside width="200px" style="background-color:#545c64!important ">
       <el-scrollbar>
         <el-menu
           active-text-color="#ffd04b"
@@ -9,7 +9,11 @@
           default-active="2"
           text-color="#fff"
         >
-          <el-sub-menu :index="String(idx)" v-for="(submenu, idx) in bigDick" :key="idx">
+          <el-sub-menu
+            :index="String(idx)"
+            v-for="(submenu, idx) in bigDick"
+            :key="idx"
+          >
             <template #title>
               {{ submenu.title }}
             </template>
@@ -28,8 +32,9 @@
     </el-aside>
 
     <el-container>
-      <el-header style="text-align: right; font-size: 12px"> 
-        当前数据{{store.getters.getUser}}
+      <el-header class="el-header">
+        <div>微前端实践</div>
+        <div>当前数据{{ store.getters.getUser }}</div>
       </el-header>
       <el-main>
         <el-scrollbar>
@@ -49,26 +54,26 @@ import { useStore } from "vuex";
 
 const bigDick = [
   {
-    title: "子系统-1",
+    title: "微应用-1",
     list: [
-      { title: "子系统-首页", path: "/app-vue/" },
-      { title: "子系统-其他页面", path: "/app-vue/ass" },
+      { title: "微应用-首页", path: "/app-vue/" },
+      { title: "微应用-其他页面", path: "/app-vue/ass" },
     ],
   },
   {
-    title: "子系统-2",
+    title: "微应用-2",
     list: [
-      { title: "子系统-2-首页", path: "/app-react/" },
-      { title: "子系统-2-其他页面", path: "/app-react/kapa" },
+      { title: "微应用-2-首页", path: "/app-react/" },
+      { title: "微应用-2-其他页面", path: "/app-react/kapa" },
     ],
   },
 ];
 const store = useStore();
 
 const router = useRouter();
-const goPage = ({path}) => {
-  router.push(path)
-}
+const goPage = ({ path }) => {
+  router.push(path);
+};
 </script>
 
 <style lang="scss">
@@ -77,6 +82,15 @@ const goPage = ({path}) => {
     position: relative;
     background-color: #b3c0d1;
     color: var(--el-text-color-primary);
+    display: flex;
+    justify-content: space-between;
+    div {
+      font-size: 16px;
+      color: #fff;
+      align-items: center;
+      vertical-align: middle;
+      line-height: 60px;
+    }
   }
   .el-aside {
     width: 240px;
