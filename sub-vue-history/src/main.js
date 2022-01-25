@@ -2,16 +2,24 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import routes from './routes/index'
 import { createRouter, createWebHistory } from "vue-router"
+import actions from './send/index'
 
 const __qiankun__ = window.__POWERED_BY_QIANKUN__;
 let instance = null;
 let router = null;
 
-const render = ({ container } = {}) => {
+const render = (props) => {
+  let { container } = props;
+
+  // if (container) {
+  //   actions.setActions(props)
+  // }
+
   router = new createRouter({
-    history: createWebHistory(window.__POWERED_BY_QIANKUN__ ? '/app-vue' : '/'), 
+    history: createWebHistory(window.__POWERED_BY_QIANKUN__ ? '/app-vue' : '/'),
     routes: routes,
-})
+  })
+
   instance = createApp(App).use(router).mount(container ? container.querySelector("#app") : "#app");
 };
 
@@ -25,6 +33,8 @@ export async function bootstrap() {
 
 export async function mount(props) {
   console.log('[vue] props from main framework', props);
+  console.log(actions)
+  actions.setActions(props)
   render(props);
 }
 

@@ -1,6 +1,6 @@
 <template>
   <el-container class="layout-container-demo">
-    <el-aside width="200px" style="background-color:#545c64!important ">
+    <el-aside width="200px" style="background-color: #545c64 !important">
       <el-scrollbar>
         <el-menu
           active-text-color="#ffd04b"
@@ -33,8 +33,9 @@
 
     <el-container>
       <el-header class="el-header">
-        <div>微前端实践</div>
-        <div>当前数据{{ store.getters.getUser }}</div>
+        <div>微前端</div>
+        <div>当前数据:<span style="color:red">{{ store.getters.getMsg || '-'}}</span><el-button @click="sendMsg">发送消息</el-button></div>
+        
       </el-header>
       <el-main>
         <el-scrollbar>
@@ -51,6 +52,7 @@
 // import { Menu as IconMenu } from "@element-plus/icons-vue";
 import { useRouter } from "vue-router";
 import { useStore } from "vuex";
+import acitons from "../qiankunState";
 
 const bigDick = [
   {
@@ -74,6 +76,10 @@ const router = useRouter();
 const goPage = ({ path }) => {
   router.push(path);
 };
+
+const sendMsg = () => {
+  acitons.setGlobalState({msg: "来自主框架的新消息"});
+}
 </script>
 
 <style lang="scss">

@@ -1,25 +1,25 @@
-import { initGlobalState } from 'qiankun';
-import {  useStore } from 'vuex';
+import { initGlobalState } from "qiankun";
+import store from './src/store/index'
 
 const initialState = {
-    user: {
-        name: 'qiankun'
-    }
+    //这里写初始化数据
+    msg: "$$$$$$",
+    type: ''
 };
-const store = useStore();
-console.log(initialState)
 
-// 存放所有应用state
+
+// 初始化 state
 const actions = initGlobalState(initialState);
-
-actions.onGlobalStateChange((state, prev) => {
-    console.log(prev)
-    for (const key in state) {
-        initialState[key] = state[key];
+actions.onGlobalStateChange((state, prev) => {//监听公共状态的变化
+    if (state.type === "open@@@") {
+        console.log(location)
+        location.pathname = '/app-react'
     }
-    store.commit('setUsername', state)
-    // console.log(store.getters.getUser)
-
+    console.log("主应用: 变更前");
+    console.log(prev);
+    console.log("主应用: 变更后");
+    console.log(state.msg);
+    store.commit('setMsg', state.msg);//这里我把公共状态存到主应用的vuex里了
 });
-// actions.setGlobalState(state);
-// actions.offGlobalStateChange();
+
+export default actions;
