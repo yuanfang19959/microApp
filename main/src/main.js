@@ -1,7 +1,9 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './routes';
+import store from './store';
 import '../qiankun'
+import '../qiankunState'
 
 const app = createApp(App);
 
@@ -10,6 +12,6 @@ router.beforeEach((to, from, next) => {
    next()
 })
 
-app.use(router)
+app.use(router).use(store)
 
 app.mount('#app')

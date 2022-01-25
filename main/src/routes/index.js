@@ -5,10 +5,7 @@ import Home from '../page/home.vue'
 
 const routers = [
     {
-        redirect: '/home'
-    },
-    {
-        path: '/home',
+        path: '/',
         name: 'home',
         meta: {
             title:'首页'
