@@ -6,7 +6,8 @@ module.exports = {
     config.output.libraryTarget = 'umd';
     config.output.chunkLoadingGlobal = `webpackJsonp_${name}`;
     config.output.globalObject = 'window';
-
+    // console.log('123', process.env.NODE_ENV)
+    config.output.publicPath = process.env.NODE_ENV === 'production' ?'/child/react-history/':'/';
     return config;
   },
 

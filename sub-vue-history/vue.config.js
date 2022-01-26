@@ -1,6 +1,7 @@
 const { name } = require('./package');
 
 module.exports = {
+  publicPath: process.env.NODE_ENV === 'production' ?'/child/vue-history/':'./',
   devServer: {
     port: 8082,
     headers: {

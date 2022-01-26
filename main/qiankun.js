@@ -4,13 +4,13 @@ import { registerMicroApps, start, setDefaultMountApp } from 'qiankun';
 registerMicroApps([
   {
     name: 'subr', // app name registered
-    entry: '//localhost:3000',
+    entry: '/child/react-history/',
     container: '#reactContainer',
     activeRule: '/app-react',
   },
   {
     name: 'subv',
-    entry: '//localhost:8082',
+    entry: '/child/vue-history/',
     container: '#vueContainer',
     activeRule: '/app-vue',
   },
